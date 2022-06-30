@@ -6,7 +6,7 @@ CREATE database employee_db;
 USE employee_db;
 
 --  Make a table called department.
-CREATE TABLE department (
+CREATE TABLE departments (
 
     -- Make a unique id for each item in the table.  Not null means data area can't be empty.
     id INT NOT NULL AUTO_INCREMENT,
@@ -39,7 +39,7 @@ create table roles (
 );
 
 -- Make a table called employees.
-CREATE TABLE employees (
+CREATE TABLE employee (
 
     -- Make a unique id for each item in the table.  Not null means data area can't be empty.
     id INT NOT NULL AUTO_INCREMENT,
