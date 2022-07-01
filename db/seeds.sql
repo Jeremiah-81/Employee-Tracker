@@ -11,5 +11,3 @@ VALUES (001, "first_name")
        (002, "last_name")
        (003,  "role_id")
        (004,  "manager_id")
-
-module.exports = seeds;
