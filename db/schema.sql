@@ -1,4 +1,4 @@
-- Initialize and Configure Database
+-- Initialize and Configure Database
 DROP DATABASE IF EXISTS employee_db;
 CREATE database employee_db;
 
@@ -22,7 +22,8 @@ CREATE TABLE departments (
 create table roles (
 
     -- Make unique id for each of the items
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
 
     -- Max length of 30 characters. Not null means data area can't be empty.
     title VARCHAR(30) NOT NULL,
@@ -31,10 +32,9 @@ create table roles (
     salary DECIMAL NOT NULL,
 
     -- Allow the department_id to accept only integers.  Not null means data area can't be empty.
-    department_id INT NOT NULL,
+    department_id INT NOT NULL references departments(id)
 
     -- Make id the primary key to identify the items in this table.  
-    PRIMARY KEY (id)
 
 );
 
@@ -42,7 +42,8 @@ create table roles (
 CREATE TABLE employee (
 
     -- Make a unique id for each item in the table.  Not null means data area can't be empty.
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
 
     -- Allow the first_name a max of 30 characters.  Not null means data area can't be empty.
     first_name VARCHAR(30) NOT NULL,
@@ -51,12 +52,11 @@ CREATE TABLE employee (
     last_name VARCHAR(30) NULL,
     
     -- Allow only integers inside role-id. Not null means data area can't be empty.
-    role_id INT NOT NULL,
+    roles_id INT NOT NULL references roles(id),
 
     -- Allow only integers inside manager-id. Not null means data area can't be empty.
-    manager_id INT NOT NULL,
+    manager_id INT references employee(id) ON DELETE SET NULL 
     
     -- Make id the primary key to identify the items in this table.  
-    PRIMARY KEY (id)
 
 );
