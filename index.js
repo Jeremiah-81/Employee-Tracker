@@ -19,6 +19,33 @@ function viewEmployees() {
   })
 }
 
+function viewDepartments() {
+
+  db.query("select * from departments", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
+function viewrole() {
+
+  db.query("select * from roles", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
+function adddepartment() {
+
+  db.query("select * from add department", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
 // //Add new employee
 // function addEmployee() {
 //   readRoles().then((roles) => {
@@ -97,16 +124,16 @@ function initiate() {
           viewEmployees();
           break;
         case "View departments":
-          viewDepartment();
+          viewDepartments();
           break;
         case "View roles":
-          viewroles();
+          viewrole();
           break;
         case "add department":
           adddepartment();
           break;
         case "add role":
-          addroles();
+          addrole();
           break;
         case "add employee":
           addEmployee();
@@ -125,6 +152,6 @@ function initiate() {
 }
 
 db.connect(function () {
-  console.log("Welcome to Employee Tracke")
+  console.log("Welcome to Employee Tracker")
   initiate();
 })
