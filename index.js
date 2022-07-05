@@ -37,10 +37,10 @@ function viewrole() {
   })
 }
 
-function adddepartment() {
+function addDepartment() {
 
-  db.query("select * from add department", function (_err,data) {
-    // if (err) throw err;
+  db.query("select * from add department", function (err,data) {
+    if (err) throw err;
     console.log(data)
     initiate()
   })
@@ -130,7 +130,7 @@ function initiate() {
           viewrole();
           break;
         case "add department":
-          adddepartment();
+          addDepartment();
           break;
         case "add role":
           addrole();
