@@ -46,6 +46,34 @@ function addDepartment() {
   })
 }
 
+
+function addrole() {
+
+  db.query("select * from add role", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
+function addEmployee() {
+
+  db.query("select * from add employee", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
+function updateemployeeroles() {
+
+  db.query("select * from update employee roles", function (err,data) {
+    if (err) throw err;
+    console.log(data)
+    initiate()
+  })
+}
+
 // //Add new employee
 // function addEmployee() {
 //   readRoles().then((roles) => {
