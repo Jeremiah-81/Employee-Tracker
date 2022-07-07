@@ -5,73 +5,64 @@ const db = mysql2.createConnection({
   host: "localhost",
   user: "root",
   password: "thepassword!",
-  database: "employee_db"
-})
-
+  database: "employee_db",
+});
 
 //--------------View Employees-------------//
 function viewEmployees() {
-
-  db.query("SELECT * FROM employee", function (err,data) {
+  db.query("SELECT * FROM employee", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 function viewDepartments() {
-
-  db.query("select * from departments", function (err,data) {
+  db.query("select * from departments", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 function viewrole() {
-
-  db.query("select * from roles", function (err,data) {
+  db.query("select * from roles", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 function addDepartment() {
-
-  db.query("SELECT * FROM add department", function (err,data) {
+  db.query("SELECT * FROM add department", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
-
 function addrole() {
-
-  db.query("SELECT * FROM add role", function (err,data) {
+  db.query("SELECT * FROM add role", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 function addEmployee() {
-
-  db.query("SELECT * FROM add employee", function (err,data) {
+  db.query("SELECT * FROM add employee", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 function updateemployeeroles() {
-
-  db.query("SELECT * FROM update employee roles", function (err,data) {
+  db.query("SELECT * FROM update employee roles", function (err, data) {
     if (err) throw err;
-    console.log(data)
-    initiate()
-  })
+    console.log(data);
+    initiate();
+  });
 }
 
 // //Add new employee
@@ -140,7 +131,7 @@ function initiate() {
           "add role",
           "add employee",
           "update employee roles",
-          "Exit App"
+          "Exit App",
         ],
       },
     ])
@@ -170,8 +161,8 @@ function initiate() {
           updateemployeeroles();
           break;
         default:
-          db.end()
-          process.exit(0)
+          db.end();
+          process.exit(0);
       }
       // userView === ("View employees"){
       //     viewEmployees();
@@ -180,7 +171,6 @@ function initiate() {
 }
 
 db.connect(function () {
-  console.log("Welcome to Employee Tracker")
+  console.log("Welcome to Employee Tracker");
   initiate();
-})
-
+});
