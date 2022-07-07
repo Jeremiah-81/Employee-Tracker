@@ -12,7 +12,7 @@ const db = mysql2.createConnection({
 //--------------View Employees-------------//
 function viewEmployees() {
 
-  db.query("select * from employee", function (err,data) {
+  db.query("SELECT * FROM employee", function (err,data) {
     if (err) throw err;
     console.log(data)
     initiate()
@@ -39,7 +39,7 @@ function viewrole() {
 
 function addDepartment() {
 
-  db.query("select * from add department", function (err,data) {
+  db.query("SELECT * FROM add department", function (err,data) {
     if (err) throw err;
     console.log(data)
     initiate()
@@ -49,7 +49,7 @@ function addDepartment() {
 
 function addrole() {
 
-  db.query("select * from add role", function (err,data) {
+  db.query("SELECT * FROM add role", function (err,data) {
     if (err) throw err;
     console.log(data)
     initiate()
@@ -58,7 +58,7 @@ function addrole() {
 
 function addEmployee() {
 
-  db.query("select * from add employee", function (err,data) {
+  db.query("SELECT * FROM add employee", function (err,data) {
     if (err) throw err;
     console.log(data)
     initiate()
@@ -67,7 +67,7 @@ function addEmployee() {
 
 function updateemployeeroles() {
 
-  db.query("select * from update employee roles", function (err,data) {
+  db.query("SELECT * FROM update employee roles", function (err,data) {
     if (err) throw err;
     console.log(data)
     initiate()
@@ -133,9 +133,9 @@ function initiate() {
         type: "list",
         message: "Employees Tracker",
         choices: [
-          "View employees",
-          "View departments",
-          "View roles",
+          "view employees",
+          "view departments",
+          "view roles",
           "add department",
           "add role",
           "add employee",
@@ -148,13 +148,13 @@ function initiate() {
       console.log(data);
 
       switch (data.employeeInfo) {
-        case "View employees":
+        case "view employees":
           viewEmployees();
           break;
-        case "View departments":
+        case "view departments":
           viewDepartments();
           break;
-        case "View roles":
+        case "view roles":
           viewrole();
           break;
         case "add department":

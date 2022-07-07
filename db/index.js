@@ -1,7 +1,7 @@
 const db = require("./connections")
 const calls = {
     findallRoles(){
-     return db.promice.query()
+     return db.promise.query()
     }
 }
 module.exports = calls
