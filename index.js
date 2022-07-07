@@ -183,3 +183,4 @@ db.connect(function () {
   console.log("Welcome to Employee Tracker")
   initiate();
 })
+
