@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
-const inquirer = require(inquirer);
+// const inquirer = require(inquirer);
 
 const connections = mysql.createConnection(
     {
@@ -16,3 +16,4 @@ const connections = mysql.createConnection(
     if(err) throw err
   }) 
   module.exports = connections
+

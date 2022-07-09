@@ -3,7 +3,10 @@ USE employee_db;
 
 SELECT * FROM departments;
 SELECT * FROM roles;
-SELECT * FROM Employee;
+SELECT * FROM employee;
+
+
+
 
 
 -- SELECT e.first_name,e.last_name,r.title,r.salary,
