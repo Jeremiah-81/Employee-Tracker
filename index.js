@@ -2,9 +2,10 @@ const inquirer = require("inquirer");
 const mysql2 = require("mysql2");
 require("console.table");
 // const db = require("./db")
-const db = mysql2.createConnection({
-  database: "employee_db",
-});
+const db = require ("./db/connections")
+// mysql2.createConnection({
+  // database: "employee_db",
+// });
 //--------------View Employees-------------//
 function viewEmployees() {
   db.query("SELECT * FROM employee", function (err, data) {
@@ -25,8 +26,8 @@ function viewDepartments() {
 
 function viewrole() {
   console.log("roles")
-  db.query("select * from roles", function (err, data) {
-    if (err) throw err;
+  return db.promise().query("select * from roles").then( ([data]) => {
+    // if (err) throw err;
     console.table(data);
     // initiate();
     return(data);
@@ -67,11 +68,12 @@ function updateemployeeroles() {
 
 //Add new employee
 function addEmployee() {
-  let viewrole = viewrole()
-    const userRoleChoice = viewrole(({ title: name, id: value }) => ({
+  viewrole () .then(roles => {
+    const userRoleChoice = roles.map(({ title: name, id: value }) => ({
       name,
       value,
     }));
+    console.log (userRoleChoice)
     inquirer
       .prompt([
         {
@@ -114,6 +116,7 @@ function addEmployee() {
           });
         ;
       });
+    })
 }
 function initiate() {
   inquirer
