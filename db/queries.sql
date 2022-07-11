@@ -6,9 +6,6 @@ SELECT * FROM roles;
 SELECT * FROM employee;
 
 
-
-
-
 -- SELECT e.first_name,e.last_name,r.title,r.salary,
 -- d.dept_name from employee e 
 -- join roles r 
