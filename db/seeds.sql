@@ -1,5 +1,7 @@
 USE employee_db;
-INSERT INTO departments (dept_name)
+INSERT INTO departments (name)
+-- removed dept_ in (dept-name)
+
 VALUES ("Sales"),
        ("Engineering"),
        ("Finance"),

@@ -12,7 +12,7 @@ CREATE TABLE departments (
     id INT NOT NULL AUTO_INCREMENT,
     
     -- Allow the dept_name a max of 30 characters.  Not null means data area can't be empty.
-    dept_name VARCHAR(30) NOT NULL,
+    department_name VARCHAR(30) NOT NULL,
 
     --  Make id the primary key to identify the items in the table.  
     PRIMARY KEY (id)

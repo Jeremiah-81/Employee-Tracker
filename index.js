@@ -9,15 +9,17 @@ const db = require ("./db/connections")
 //--------------View Employees-------------//
 function viewEmployees() {
   db.query("SELECT * FROM employee", function (err, data) {
-    if (err) throw err;
+    if (err) throw err;(data);
     console.table(data);
-    console.log(data);
+    // commented out console.log(data);
+    // console.log(data);
     initiate();
   });
 }
 
 function viewDepartments() {
-  db.query("select * from departments", function (err, data) {
+  // changed select to SELECT
+  db.query("SELECT * from departments", function (err, data) {
     if (err) throw err;
     console.table(data);
     initiate();
@@ -26,15 +28,26 @@ function viewDepartments() {
 
 function viewrole() {
   console.log("roles")
-  return db.promise().query("select * from roles").then( ([data]) => {
-    // if (err) throw err;
+
+  // from: return db.promise().query("SELECT * from roles").then( ([data]) => { 
+  // TO: db.query("SELECT * from roles", function (err, data) {
+  db.query("SELECT * from roles", function (err, data) {
+  
+    // uncommented if (err) throw err;
+  if (err) throw err;
+
     console.table(data);
-    // initiate();
-    return(data);
+
+    // uncommented initiate();
+    initiate();
+
+    // commented out return(data);
+    // return(data);
   });
 }
 
 function addDepartment() {
+  console.log("department")
   db.query("SELECT * FROM departments", function (err, data) {
     if (err) throw err;
     console.log(data);
@@ -43,6 +56,7 @@ function addDepartment() {
 }
 
 function addrole() {
+  console.log("roles")
   db.query("SELECT * FROM roles", function (err, data) {
     if (err) throw err;
     console.log(data);
@@ -68,7 +82,7 @@ function updateemployeeroles() {
 
 //Add new employee
 function addEmployee() {
-  viewrole () .then(roles => {
+  viewrole().then(roles => {
     const userRoleChoice = roles.map(({ title: name, id: value }) => ({
       name,
       value,

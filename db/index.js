@@ -4,14 +4,14 @@ const calls = {
      return db.promise.query()
     }
 }
-const depts = {
+const departments = {
     findalldepartments(){
      return db.promise.query()
     }
 }
-const emps = {
+const employees = {
     findallemployees(){
      return db.promise.query()
     }
 }
-module.exports = calls, depts, emps
+module.exports = calls, departments, employees
