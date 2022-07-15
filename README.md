@@ -17,3 +17,5 @@ https://raw.githubusercontent.com/Jeremiah-81/Employee-Tracker/main/assets/image
 Inside the terminal type: node index.js
 
 ## Credits
+
+https://www.w3schools.com/sql/sql_join_left.asp

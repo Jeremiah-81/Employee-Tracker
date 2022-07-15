@@ -11,13 +11,19 @@ const db = require ("./db/connections")
 // });
 //--------------View Employees-------------//
 function viewEmployees() {
-  db.query("SELECT * FROM employee", function (err, data) {
-    if (err) throw err;(data);
+  db.query("SELECT employee.id, employee.first_name, employee.last_name ,roles.title ,roles.salary FROM employee LEFT JOIN roles ON employee.roles_id = roles.id;",function (err, data) {
+    console.log(data);
     console.table(data);
+    if (err) throw err;
+    initiate();
+  })
+  // db.query("SELECT * FROM employee", function (err, data) {
+  //   if (err) throw err;(data);
+  //   console.table(data);
     // commented out console.log(data);
     // console.log(data);
-    initiate();
-  });
+  //   initiate();
+  // });
 }
 
 function viewDepartments() {
@@ -54,6 +60,10 @@ function addDepartment() {
   db.query("SELECT * FROM departments", function (err, data) {
     if (err) throw err;
     console.log(data);
+    
+    // added line: console.table(data);
+    console.table(data);
+
     initiate();
   });
 }
@@ -63,6 +73,10 @@ function addrole() {
   db.query("SELECT * FROM roles", function (err, data) {
     if (err) throw err;
     console.log(data);
+
+     // added line: console.table(data);
+    console.table(data);
+    
     initiate();
   });
 }
@@ -85,6 +99,7 @@ function updateemployeeroles() {
 
 //Add new employee
 function addEmployee() {
+  console.log("Employees")
   viewrole().then(roles => {
     const userRoleChoice = roles.map(({ title: name, id: value }) => ({
       name,
@@ -241,3 +256,10 @@ db.connect(function () {
 //     initiate();
 //   });
 // }
+
+// This is the join left method I tried to ues.
+
+// SELECT column_name(s)
+// FROM table1
+// LEFT JOIN table2
+// ON table1.column_name = table2.column_name;
