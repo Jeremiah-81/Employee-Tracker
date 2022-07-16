@@ -17,13 +17,6 @@ function viewEmployees() {
     if (err) throw err;
     initiate();
   })
-  // db.query("SELECT * FROM employee", function (err, data) {
-  //   if (err) throw err;(data);
-  //   console.table(data);
-    // commented out console.log(data);
-    // console.log(data);
-  //   initiate();
-  // });
 }
 
 function viewDepartments() {
@@ -80,14 +73,6 @@ function addrole() {
     initiate();
   });
 }
-
-// function addEmployee() {
-//   db.query("SELECT * FROM employee", function (err, data) {
-//     if (err) throw err;
-//     console.log(data);
-//     initiate();
-//   });
-// }
 
 function updateemployeeroles() {
   db.query("SELECT * FROM update employee role", function (err, data) {
@@ -256,10 +241,3 @@ db.connect(function () {
 //     initiate();
 //   });
 // }
-
-// This is the join left method I tried to ues.
-
-// SELECT column_name(s)
-// FROM table1
-// LEFT JOIN table2
-// ON table1.column_name = table2.column_name;

@@ -5,6 +5,7 @@ SELECT * FROM departments;
 SELECT * FROM roles;
 SELECT * FROM employee;
 
+-- This will help understand how to connect the titles.
 
 -- SELECT e.first_name,e.last_name,r.title,r.salary,
 -- d.dept_name from employee e 
