@@ -12,7 +12,8 @@ const db = require ("./db/connections")
 //--------------View Employees-------------//
 function viewEmployees() {
   db.query("SELECT employee.id, employee.first_name, employee.last_name ,roles.title ,roles.salary FROM employee LEFT JOIN roles ON employee.roles_id = roles.id;",function (err, data) {
-    console.log(data);
+   // commented out console.log(data);
+    // console.log(data);
     console.table(data);
     if (err) throw err;
     initiate();
@@ -23,6 +24,7 @@ function viewDepartments() {
   // changed select to SELECT
   db.query("SELECT * from departments", function (err, data) {
     if (err) throw err;
+    // console.log(data);
     console.table(data);
     initiate();
   });
